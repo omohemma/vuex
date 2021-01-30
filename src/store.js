@@ -5,23 +5,21 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    user: {
-      id: 123,
-      name: 'Omololu Emmanuel'
-    },
-    categories: [
-      'A',
-      'B',
-      'C',
-      'D',
-      'E',
+    todos: [
+      {id: 1, text: '...', done: true},
+      {id: 2, text: '...', done: false},
+      {id: 3, text: '...', done: true},
+      {id: 4, text: '...', done: true},
     ]
   },
   mutations: {},
   actions: {},
   getters: {
-    catLength(state) {
-      return state.categories.length
-    }
+    doneTodos(state) {
+      return state.todos.filter(todo => todo.done);
+    },
+    activeTodosLength(state) {
+      return state.todos.filter(todo => !todo.done).length;
+    },
   }
 })
