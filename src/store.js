@@ -5,21 +5,19 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    todos: [
-      {id: 1, text: '...', done: true},
-      {id: 2, text: '...', done: false},
-      {id: 3, text: '...', done: true},
-      {id: 4, text: '...', done: true},
+    events: [
+      {id: 1, title: '...', organizer: '...'},
+      {id: 2, title: '...', organizer: '...'},
+      {id: 3, title: '...', organizer: '...'},
+      {id: 4, title: '...', organizer: '...'},
+      {id: 5, title: '...', organizer: '...'},
     ]
   },
   mutations: {},
   actions: {},
   getters: {
-    doneTodos(state) {
-      return state.todos.filter(todo => todo.done);
-    },
-    activeTodosLength(state) {
-      return state.todos.filter(todo => !todo.done).length;
-    },
+    getEventById: state => id => {
+      return state.events.find(event => event.id === id);
+    }
   }
 })

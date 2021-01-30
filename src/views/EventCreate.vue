@@ -1,24 +1,23 @@
 <template>
   <div>
-    <p>You have completed {{doneTodos.length}} Todos, it is remaining {{activeTodos}} Todos</p>
     <pre>
-      {{doneTodos}}
+      {{getEvent(4)}}
     </pre>
   </div>
 </template>
 
 <script>
-  import {mapState} from 'vuex';
+  import {mapGetters} from 'vuex';
 
   export default {
     name: 'EventCreate',
     computed: {
-      doneTodos(){
-        return this.$store.getters.doneTodos;
-      },
-      activeTodos(){
-        return this.$store.getters.activeTodosLength;
-      }
+      // getEvent(){
+      //   return this.$store.getters.getEventById;
+      // }
+      ...mapGetters({
+        getEvent : 'getEventById'
+      })
     },
   }
 </script>
