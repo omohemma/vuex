@@ -7,9 +7,9 @@ export default new Vuex.Store({
   state: {
     user: {
       id: 123,
-      name:'Omololu Emmanuel'
+      name: 'Omololu Emmanuel'
     },
-    categories:[
+    categories: [
       'A',
       'B',
       'C',
@@ -18,5 +18,10 @@ export default new Vuex.Store({
     ]
   },
   mutations: {},
-  actions: {}
+  actions: {},
+  getters: {
+    catLength(state) {
+      return state.categories.length
+    }
+  }
 })

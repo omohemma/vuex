@@ -1,9 +1,10 @@
 <template>
   <div>
-    <h1>Create Event {{`${userName} with ID ${userID}` }}</h1>
+    <h4>Create Event {{`${userName} with ID ${userID}` }}</h4>
     <ul>
       <li v-for="cat in categories" :key="cat">{{cat}}</li>
     </ul>
+    <p>There are  {{catLength}} categories</p>
   </div>
 </template>
 
@@ -13,14 +14,14 @@
   export default {
     name: 'EventCreate',
     computed: {
-      /*
-     ...mapState(['user','categories']); // No User Defined Names for Vuex State
-      */
       ...mapState({
         userName: state => state.user.name,
         userID: state => state.user.id,
         categories: 'categories'
       }),
+      catLength(){
+        return this.$store.getters.catLength;
+      }
 
 
 
