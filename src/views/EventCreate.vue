@@ -44,39 +44,59 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+  import {mapGetters} from 'vuex'
 
-import Datepicker from 'vuejs-datepicker'
+  import Datepicker from 'vuejs-datepicker'
 
-export default {
-  name: 'EventCreate',
-  data() {
-    let times = []
-    for (let index = 1; index <= 24; index++) {
-      times.push(`${index}:00`)
+  export default {
+    name: 'EventCreate',
+    data() {
+      let times = []
+      for (let index = 1; index <= 24; index++) {
+        times.push(`${index}:00`)
+      }
+      return {
+        times,
+        event: this.createFreshEventObject, // This Helps to clear input fields way to easy...
+        categories: this.$store.state.categories
+      }
+    },
+    components: {
+      Datepicker
+    },
+    methods: {
+      createFreshEventObject() {
+        const user = this.store.state.user;
+        const id = Math.floor(Math.random() * 10000000);
+
+        return {
+          id: id,
+          user: user,
+          category: '',
+          organizer: user,
+          title: '',
+          description: '',
+          location: '',
+          date: '',
+          time: '',
+          attendees: []
+        }
+
+      }
+    },
+    computed: {
+      // getEvent(){
+      //   return this.$store.getters.getEventById;
+      // }
+      ...mapGetters({
+        getEvent: 'getEventById'
+      })
     }
-    return {
-      times,
-      event: {},
-      categories: this.$store.state.categories
-    }
-  },
-  components: {
-    Datepicker
-  },
-  computed: {
-    // getEvent(){
-    //   return this.$store.getters.getEventById;
-    // }
-    ...mapGetters({
-      getEvent: 'getEventById'
-    })
   }
-}
 </script>
 
 <style scoped>
-.field {
-  margin-bottom: 24px;
-}
+  .field {
+    margin-bottom: 24px;
+  }
 </style>
