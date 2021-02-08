@@ -16,6 +16,7 @@ export default new Vuex.Store({
   mutations: {},
   actions: {},
   getters: {
+    // currying
     getEventById: state => id => {
       return state.events.find(event => event.id === id);
     }
