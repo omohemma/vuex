@@ -1,11 +1,12 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import EventService from "./services/EventService"
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    user: { id: 'abc123', name: 'Adam Jahr' },
+    user: {id: 'abc123', name: 'Adam Jahr'},
     categories: [
       'sustainability',
       'nature',
@@ -16,15 +17,24 @@ export default new Vuex.Store({
       'community'
     ],
     events: [
-      { id: 1, title: '...', organizer: '...' },
-      { id: 2, title: '...', organizer: '...' },
-      { id: 3, title: '...', organizer: '...' },
-      { id: 4, title: '...', organizer: '...' },
-      { id: 5, title: '...', organizer: '...' }
+      {id: 1, title: '...', organizer: '...'},
+      {id: 2, title: '...', organizer: '...'},
+      {id: 3, title: '...', organizer: '...'},
+      {id: 4, title: '...', organizer: '...'},
+      {id: 5, title: '...', organizer: '...'}
     ]
   },
-  mutations: {},
-  actions: {},
+  mutations: {
+    ADD_EVENT(state, event) {
+      state.events.push(event); // Push Event Into mock DB.json
+    }
+  },
+  actions: {
+    createEvent({commit}, event) {
+      EventService.postEvent(event); // Trigger postEvent to persist db.json
+      commit('ADD_EVENT', event); // Destructure context object and update events in our state
+    }
+  },
   getters: {
     // currying
     getEventById: state => id => {
