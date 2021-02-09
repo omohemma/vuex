@@ -65,8 +65,13 @@
     },
     methods: {
       createEvent(){
-        console.log(this.event);
+        // console.log(this.event);
         this.$store.dispatch('createEvent', this.event)
+          .then(() => {
+            this.event = this.createFreshEventObject(); // Clear Input After Success
+          }).catch(() => {
+            console.log(' There was a problem when saving event record');
+        })
       },
       createFreshEventObject() {
         const user = this.$store.state.user;

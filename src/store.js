@@ -31,8 +31,10 @@ export default new Vuex.Store({
   },
   actions: {
     createEvent({commit}, event) {
-      EventService.postEvent(event); // Trigger postEvent to persist db.json
-      commit('ADD_EVENT', event); // Destructure context object and update events in our state
+      return EventService.postEvent(event) // Trigger postEvent to persist db.json
+        .then(() => {
+          commit('ADD_EVENT', event); // Destructure context object and update events in our state
+        })
     }
   },
   getters: {
