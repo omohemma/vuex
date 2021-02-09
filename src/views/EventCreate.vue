@@ -64,13 +64,19 @@
       Datepicker
     },
     methods: {
-      createEvent(){
+      createEvent() {
         // console.log(this.event);
         this.$store.dispatch('createEvent', this.event)
           .then(() => {
+            // Route to Event Show
+            this.$router.push({
+              name: 'event-show',
+              params: {id: this.event.id}
+            });
+
             this.event = this.createFreshEventObject(); // Clear Input After Success
           }).catch(() => {
-            console.log(' There was a problem when saving event record');
+          console.log(' There was a problem when saving event record');
         })
       },
       createFreshEventObject() {

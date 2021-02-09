@@ -89,6 +89,24 @@
       "date": "2021-02-10T23:34:00.000Z",
       "time": "6:00",
       "attendees": []
+    },
+    {
+      "id": 1094803,
+      "user": {
+        "id": "abc123",
+        "name": "Adam Jahr"
+      },
+      "category": "food",
+      "organizer": {
+        "id": "abc123",
+        "name": "Adam Jahr"
+      },
+      "title": "Aut deserunt eaque eum eos sint placeat. Atque sed natus voluptatum. Eligendi explicabo commodi doloribus excepturi officia in velit. Aperiam veritatis a aut provident.",
+      "description": "Tempore et molestiae aperiam commodi culpa neque. Quod ut sunt eaque quis quam numquam. Accusantium repellendus et et voluptas iusto et. Aspernatur repellat quam ea ipsum autem.",
+      "location": "East Alana",
+      "date": "2021-02-03T23:49:00.000Z",
+      "time": "21:00",
+      "attendees": []
     }
   ]
 }
