@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Create an Event</h1>
-    <form>
+    <form @submit.prevent="createEvent">
       <label>Select a category</label>
       <select v-model="event.category">
         <option v-for="cat in categories" :key="cat">{{ cat }}</option>
@@ -45,7 +45,6 @@
 
 <script>
   import {mapGetters} from 'vuex'
-
   import Datepicker from 'vuejs-datepicker'
 
   export default {
@@ -57,7 +56,7 @@
       }
       return {
         times,
-        event: this.createFreshEventObject, // This Helps to clear input fields way to easy...
+        event: this.createFreshEventObject(), // This Helps to clear input fields way to easy...
         categories: this.$store.state.categories
       }
     },
@@ -65,8 +64,12 @@
       Datepicker
     },
     methods: {
+      createEvent(){
+        console.log(this.event);
+        this.$store.dispatch('createEvent', this.event)
+      },
       createFreshEventObject() {
-        const user = this.store.state.user;
+        const user = this.$store.state.user;
         const id = Math.floor(Math.random() * 10000000);
 
         return {

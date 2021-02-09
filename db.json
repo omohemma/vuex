@@ -71,6 +71,24 @@
           "name": "Mary Gordon"
         }
       ]
+    },
+    {
+      "id": 3315634,
+      "user": {
+        "id": "abc123",
+        "name": "Adam Jahr"
+      },
+      "category": "animal welfare",
+      "organizer": {
+        "id": "abc123",
+        "name": "Adam Jahr"
+      },
+      "title": "Neque repudiandae neque blanditiis. Nesciunt minus quae commodi quis occaecati consectetur qui error. Ex non consequuntur quo alias neque. Asperiores quos quisquam.",
+      "description": "Maiores minima dolore inventore alias et aliquam eos. Et ipsum ut sed laboriosam fuga et minus eius. Sit ad explicabo inventore maiores aut aspernatur accusamus consequuntur. Non eveniet et.",
+      "location": "",
+      "date": "2021-02-10T23:34:00.000Z",
+      "time": "6:00",
+      "attendees": []
     }
   ]
 }
