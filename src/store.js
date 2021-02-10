@@ -16,17 +16,14 @@ export default new Vuex.Store({
       'food',
       'community'
     ],
-    events: [
-      {id: 1, title: '...', organizer: '...'},
-      {id: 2, title: '...', organizer: '...'},
-      {id: 3, title: '...', organizer: '...'},
-      {id: 4, title: '...', organizer: '...'},
-      {id: 5, title: '...', organizer: '...'}
-    ]
+    events: []
   },
   mutations: {
     ADD_EVENT(state, event) {
-      state.events.push(event); // Push Event Into mock DB.json
+      state.events.push(event); // Push Event Into initial state
+    },
+    SET_EVENTS(state, events) {
+      state.events = events; //events is a payload received affter API calls
     }
   },
   actions: {
@@ -34,6 +31,15 @@ export default new Vuex.Store({
       return EventService.postEvent(event) // Trigger postEvent to persist db.json
         .then(() => {
           commit('ADD_EVENT', event); // Destructure context object and update events in our state
+        })
+    },
+    fetchEvents({commit}){
+      EventService.getEvents()
+        .then(response => {
+          commit('SET_EVENTS', response.data);
+        })
+        .catch(error => {
+          console.log('There was an error:', error.response)
         })
     }
   },
