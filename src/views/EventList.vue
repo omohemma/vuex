@@ -6,18 +6,24 @@
 </template>
 
 <script>
-import EventCard from '@/components/EventCard.vue'
-import {mapState} from 'vuex';
+  import EventCard from '@/components/EventCard.vue'
+  import {mapState} from 'vuex';
 
-export default {
-  components: {
-    EventCard
-  },
-  created() {
-    this.$store.dispatch('fetchEvents');
-  },
-  computed: {
-   ...mapState(['events'])
-  },
-}
+  export default {
+    components: {
+      EventCard
+    },
+    created() {
+      this.$store.dispatch('fetchEvents', {
+        perPage: 3,
+        page: this.page
+      });
+    },
+    computed: {
+      ...mapState(['events']),
+      page() {
+        return parseInt(this.$route.query.page) || 1
+      }
+    },
+  }
 </script>
