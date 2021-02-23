@@ -1,26 +1,14 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
-import EventService from './services/EventService'
+//  Alternative One - vuex getters. state, mutations and actions as private methods
 
-Vue.use(Vuex)
 
-export default new Vuex.Store({
-  state: {
-    user: { id: 'abc123', name: 'Adam Jahr' },
-    categories: [
-      'sustainability',
-      'nature',
-      'animal welfare',
-      'housing',
-      'education',
-      'food',
-      'community'
-    ],
+ import EventService from '../../services/EventService'
+ export const state = {
     events: [],
     total_events: 0,
     event: {}
-  },
-  mutations: {
+  };
+
+  export const mutations = {
     ADD_EVENT(state, event) {
       state.events.push(event) // Push Event Into initial state
     },
@@ -33,8 +21,9 @@ export default new Vuex.Store({
     SET_EVENT(state, event) {
       state.event = event
     }
-  },
-  actions: {
+  }; 
+
+ export const actions = {
     createEvent({ commit }, event) {
       return EventService.postEvent(event) // Trigger postEvent to persist db.json
         .then(() => {
@@ -78,11 +67,11 @@ export default new Vuex.Store({
       }
   
     }
-  },
-  getters: {
+  };
+
+  export const  getters = {
     // currying
     getEventById: state => id => {
       return state.events.find(event => event.id === id)
     }
   }
-})

@@ -30,7 +30,10 @@ import { mapState } from 'vuex'
 export default {
   props: ['id'],
   computed: {
-    ...mapState(['event'])
+    // Create New event object to make event state accessible in its vuex module
+    ...mapState({
+      event : state => state.event.event
+    })
   },
   created() {
     this.$store.dispatch('fetchEvent', this.id) // Trigger Vuex Action
