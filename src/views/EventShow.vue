@@ -25,19 +25,21 @@
   </div>
 </template>
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 
 export default {
   props: ['id'],
   computed: {
     // Create New event object to make event state accessible in its vuex module
     ...mapState({
-      event : state => state.event.event
+      event: state => state.event.event
     })
   },
   created() {
-    this.$store.dispatch('event/fetchEvent', this.id) // Trigger Vuex Action
-  }
+    this.fetchEvent(this.id) // Trigger Vuex Action
+  },
+  methods: mapActions('event', ['fetchEvent'])
+
 }
 </script>
 <style scoped>
