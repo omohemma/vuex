@@ -84,8 +84,7 @@
         "name": "Adam Jahr"
       },
       "title": "Neque neque",
-      "description":
-        "Maiores minima dolore inventore alias et aliquam eos. Et ipsum ut sed laboriosam fuga et minus eius. Sit ad explicabo inventore maiores aut aspernatur accusamus consequuntur. Non eveniet et.",
+      "description": "Maiores minima dolore inventore alias et aliquam eos. Et ipsum ut sed laboriosam fuga et minus eius. Sit ad explicabo inventore maiores aut aspernatur accusamus consequuntur. Non eveniet et.",
       "location": "",
       "date": "2021-02-10T23:34:00.000Z",
       "time": "6:00",
@@ -103,11 +102,46 @@
         "name": "Adam Jahr"
       },
       "title": "Aut eaque",
-      "description":
-        "Tempore et molestiae aperiam commodi culpa neque. Quod ut sunt eaque quis quam numquam. Accusantium repellendus et et voluptas iusto et. Aspernatur repellat quam ea ipsum autem.",
+      "description": "Tempore et molestiae aperiam commodi culpa neque. Quod ut sunt eaque quis quam numquam. Accusantium repellendus et et voluptas iusto et. Aspernatur repellat quam ea ipsum autem.",
       "location": "East Alana",
       "date": "2021-02-03T23:49:00.000Z",
       "time": "21:00",
+      "attendees": []
+    },
+    {
+      "id": 777039,
+      "user": {
+        "id": "abc123",
+        "name": "Adam"
+      },
+      "category": "sustainability",
+      "organizer": {
+        "id": "abc123",
+        "name": "Adam"
+      },
+      "title": "incidunt in quia",
+      "description": "Vel temporibus ullam voluptates qui aut.",
+      "location": "Port Oswaldo",
+      "date": "2021-02-04T06:35:00.000Z",
+      "time": "12:00",
+      "attendees": []
+    },
+    {
+      "id": 3643052,
+      "user": {
+        "id": "abc123",
+        "name": "Adam"
+      },
+      "category": "food",
+      "organizer": {
+        "id": "abc123",
+        "name": "Adam"
+      },
+      "title": "est est voluptatibus",
+      "description": "Amet eos eligendi dicta dolore porro veniam voluptatem qui est.",
+      "location": "North Sylvestertown",
+      "date": "2021-02-12T06:53:00.000Z",
+      "time": "13:00",
       "attendees": []
     }
   ]

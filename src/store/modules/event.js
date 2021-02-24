@@ -1,7 +1,8 @@
-//  Alternative One - vuex getters. state, mutations and actions as private methods
+//  Alternative One - vuex getters. state, mutations and actions as private variables & methods as constant
 
 
  import EventService from '../../services/EventService'
+import user from './user';
  export const state = {
     events: [],
     total_events: 0,
@@ -24,9 +25,10 @@
   }; 
 
  export const actions = {
-    createEvent({ commit }, event) {
+    createEvent({ commit, rootState }, event) {
       return EventService.postEvent(event) // Trigger postEvent to persist db.json
         .then(() => {
+          console.log('User Creating Event is ' + rootState.user.user.name)
           commit('ADD_EVENT', event) // Destructuring context object and update events in our state
         })
     },
