@@ -25,10 +25,14 @@ import user from './user';
   }; 
 
  export const actions = {
-    createEvent({ commit, rootState }, event) {
+    createEvent({ commit, dispatch, rootState }, event) {
       return EventService.postEvent(event) // Trigger postEvent to persist db.json
         .then(() => {
-          console.log('User Creating Event is ' + rootState.user.user.name)
+
+          console.log('User Creating Event is ' + rootState.user.user.name) // Accessing Another Module's State
+          dispatch('ActionToCall') // Call action from Another Module
+
+
           commit('ADD_EVENT', event) // Destructuring context object and update events in our state
         })
     },
