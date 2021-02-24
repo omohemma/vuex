@@ -66,7 +66,7 @@
     methods: {
       createEvent() {
         // console.log(this.event);
-        this.$store.dispatch('createEvent', this.event)
+        this.$store.dispatch('event/createEvent', this.event)
           .then(() => {
             // Route to Event Show
             this.$router.push({

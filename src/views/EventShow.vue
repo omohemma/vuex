@@ -36,7 +36,7 @@ export default {
     })
   },
   created() {
-    this.$store.dispatch('fetchEvent', this.id) // Trigger Vuex Action
+    this.$store.dispatch('event/fetchEvent', this.id) // Trigger Vuex Action
   }
 }
 </script>
