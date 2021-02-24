@@ -30,7 +30,9 @@ export const actions = {
     return EventService.postEvent(event) // Trigger postEvent to persist db.json
       .then(() => {
         console.log('User Creating Event is ' + rootState.user.user.name) // Accessing Another Module's State
-        dispatch('ActionToCall') // Call action from Another Module - Drawback Name Collision : VueX Module Namespacing
+        
+        dispatch('ActionToCall') // Call action from Another Module - Drawback Name Collision 
+        dispatch('moduleName/ActionToCall', null, {root :true}) // Call action from Another Module - VueX Module Namespacing. Null is Module Payload
 
         commit('ADD_EVENT', event) // Destructuring context object and update events in our state
       })
