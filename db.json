@@ -143,6 +143,24 @@
       "date": "2021-02-12T06:53:00.000Z",
       "time": "13:00",
       "attendees": []
+    },
+    {
+      "id": 8321755,
+      "user": {
+        "id": "abc123",
+        "name": "Adam"
+      },
+      "category": "housing",
+      "organizer": {
+        "id": "abc123",
+        "name": "Adam"
+      },
+      "title": "8884 Jacobi Wells",
+      "description": "Natus voluptates dolorem fuga consequatur dolores tempora qui enim qui. Quia quibusdam itaque necessitatibus adipisci aperiam quis commodi quam. Nulla exercitationem earum praesentium. Temporibus enim impedit laborum placeat ullam occaecati qui. Voluptatem veniam tenetur occaecati laboriosam explicabo et aperiam in architecto.",
+      "location": "Kendrabury",
+      "date": "2021-02-12T07:36:00.000Z",
+      "time": "24:00",
+      "attendees": []
     }
   ]
 }

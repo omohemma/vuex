@@ -2,7 +2,7 @@
 
 import EventService from '../../services/EventService'
 
-export const namespaced =  true; //Namespacing Event Module
+export const namespaced = true //Namespacing Event Module
 
 export const state = {
   events: [],
@@ -30,14 +30,29 @@ export const actions = {
     return EventService.postEvent(event) // Trigger postEvent to persist db.json
       .then(() => {
         console.log('User Creating Event is ' + rootState.user.user.name) // Accessing Another Module's State
-        
-        dispatch('ActionToCall') // Call action from Another Module - Drawback Name Collision 
-        dispatch('moduleName/ActionToCall', null, {root :true}) // Call action from Another Module - VueX Module Namespacing. Null is Module Payload
+
+        dispatch('ActionToCall') // Call action from Another Module - Drawback Name Collision
+        dispatch('moduleName/ActionToCall', null, { root: true }) // Call action from Another Module - VueX Module Namespacing. Null is Module Payload
 
         commit('ADD_EVENT', event) // Destructuring context object and update events in our state
+
+        const notification = {
+          type: 'success',
+          message: 'Your Event was created' 
+        }
+        dispatch('notification/add', notification, { root: true })
+        
+      }).catch((error) => {
+        const notification = {
+          type: 'error',
+          message: 'There is a problem creating event: ' + error.message
+        }
+        dispatch('notification/add', notification, { root: true })
+
+        throw error;
       })
   },
-  fetchEvents({ commit }, { perPage, page }) {
+  fetchEvents({ commit, dispatch }, { perPage, page }) {
     EventService.getEvents(perPage, page)
       .then(response => {
         console.log(response.headers['x-total-count'])
@@ -45,10 +60,15 @@ export const actions = {
         commit('SET_EVENTS', response.data)
       })
       .catch(error => {
-        console.log('There was an error:', error.response)
+        const notification = {
+          type: 'error',
+          message: 'There is a problem fetching events: ' + error.message
+        }
+        dispatch('notification/add', notification, { root: true })
+        // console.log('There was an error:', error.response)
       })
   },
-  fetchEvent({ commit, getters }, eventId) {
+  fetchEvent({ commit, getters, dispatch }, eventId) {
     /**
      * Create VueX State (Like Vue Template's Data object)
      * Create Mutation Function to change state with API data response
@@ -69,7 +89,12 @@ export const actions = {
           commit('SET_EVENT', response.data)
         })
         .catch(error => {
-          console.log('There was an error:', error.response)
+          const notification = {
+            type: 'error',
+            message: 'There is a problem fetching event: ' + error.message
+          }
+          dispatch('notification/add', notification, { root: true })
+          // console.log('There was an error:', error.response)
         })
     }
   }
