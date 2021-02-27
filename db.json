@@ -161,6 +161,24 @@
       "date": "2021-02-12T07:36:00.000Z",
       "time": "24:00",
       "attendees": []
+    },
+    {
+      "id": 2939479,
+      "user": {
+        "id": "abc123",
+        "name": "Adam"
+      },
+      "category": "community",
+      "organizer": {
+        "id": "abc123",
+        "name": "Adam"
+      },
+      "title": "Voluptatem labore beatae aut magni qui temporibus soluta omnis nam. Porro enim non. Laudantium voluptatum in repellat ut harum consequatur sit qui qui.",
+      "description": "Id quibusdam tempora consequatur et nihil et. Velit reprehenderit nihil aperiam quisquam. Dolorem quaerat voluptas quos ut et et hic voluptatum. Mollitia adipisci laborum maxime est iure voluptas sint fuga error.",
+      "location": "Expedita hic esse nostrum quo.",
+      "date": "2021-02-04T03:41:00.000Z",
+      "time": "1:00",
+      "attendees": []
     }
   ]
 }
